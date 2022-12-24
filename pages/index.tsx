@@ -1,40 +1,23 @@
 const Home = () => {
   return (
     <>
-      <div>
-        <h1>Recentes</h1>
+      <div className="recents">
+        <h2>Recentes</h2>
+        <small>Latests posts</small>
       </div>
       <div>
-        <ul>
-          <li>
+        <main>
+          <div className="content">
             <header>
-              <h3>post title</h3>
-              <small>some information </small>
+              <h2>this is very long title talking about perl</h2>
+              <small>dezembro 23, 2022 - PHP Perl</small>
             </header>
-            <p>post description</p>
-          </li>
-          <li>
-            <header>
-              <h3>post title</h3>
-              <small>some descriptio </small>
-            </header>
-            <p>post description</p>
-          </li>{" "}
-          <li>
-            <header>
-              <h3>post title</h3>
-              <small>some descriptio </small>
-            </header>
-            <p>post description</p>
-          </li>{" "}
-          <li>
-            <header>
-              <h3>post title</h3>
-              <small>some descriptio </small>
-            </header>
-            <p>post description</p>
-          </li>
-        </ul>
+            <p>
+              very very very very very very very very very very very very very
+              very very very very very very very long descript
+            </p>
+          </div>
+        </main>
       </div>
     </>
   );
