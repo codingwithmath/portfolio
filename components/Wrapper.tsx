@@ -9,18 +9,14 @@ const Wrapper = ({ children }: IWrapperProps) => {
   return (
     <div className="wrapper">
       <header>
-        <h1>{`📓 Matheus's Blog`}</h1>
-        <div className="links">
-          <Link key={"blog"} href={"/home"}>
-            Blog
-          </Link>
-          <Link key={"tags"} href={"/home"}>
-            Tags
-          </Link>
-          <Link key={"about"} href={"/home"}>
-            About
-          </Link>
-        </div>
+        <h1>{`Matheus's Blog`}</h1>
+        by{" "}
+        <a
+          href="https://www.linkedin.com/in/matheus-almeida1337/"
+          target={"_blank"}
+        >
+          Matheus Almeida
+        </a>
       </header>
       <main>{children}</main>
     </div>
