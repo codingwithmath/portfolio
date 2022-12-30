@@ -1,26 +1,37 @@
-const Home = () => {
+import { GetStaticProps, InferGetServerSidePropsType } from "next";
+import { getAllPosts } from "../scripts/getAllPosts";
+import { Post } from "../types/Post";
+
+export const getStaticProps: GetStaticProps<{ posts: Post[] }> = () => {
+  const posts = getAllPosts();
+
+  return { props: { posts } };
+};
+
+export default function Home({
+  posts,
+}: InferGetServerSidePropsType<typeof getStaticProps>) {
   return (
     <>
-      <div className="recents">
-        <h2>Recentes</h2>
-        <small>Latests posts</small>
-      </div>
       <div>
         <main>
-          <div className="content">
-            <header>
-              <h2>this is very long title talking about perl</h2>
-              <small>dezembro 23, 2022 - PHP Perl</small>
-            </header>
-            <p>
-              very very very very very very very very very very very very very
-              very very very very very very very long descript
-            </p>
-          </div>
+          {posts.map((post: Post) => {
+            const {
+              metadata: { slug, title, date, excerpt },
+            } = post;
+
+            return (
+              <div className="content" key={slug}>
+                <header>
+                  <h2>{title}</h2>
+                  <small>{date}</small>
+                </header>
+                <p>{excerpt}</p>
+              </div>
+            );
+          })}
         </main>
       </div>
     </>
   );
-};
-
-export default Home;
+}
